@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Eight Ball</title>
+</head>
+
+<body>
+    <h1>Magic Eight Ball</h1>
+
+    <script>
+        // Eight possible answers
+        let answers = [
+            "Yes, absolutely.",
+            "No, not at all.",
+            "The future is unclear.",
+            "Ask again later.",
+            "Without a doubt.",
+            "I wouldn’t count on it.",
+            "Signs point to yes.",
+            "My sources say no."
+        ];
+
+        // Loop the game
+        let keepPlaying = true;
+
+        while (keepPlaying === true) {
+
+            // Ask the user for their question
+            let question = prompt("Ask the Magic Eight Ball a yes/no question:");
+
+            // If they hit cancel, stop the game
+            if (question === null) {
+                keepPlaying = false;
+                break;
+            }
+
+            // Pick a random answer
+            let randomIndex = Math.floor(Math.random() * answers.length);
+            let response = answers[randomIndex];
+
+            // Display the result on the page
+            document.write("<p><strong>You asked:</strong> " + question + "</p>");
+            document.write("<p><strong>The Magic Eight Ball says:</strong> " + response + "</p>");
+            document.write("<hr>");
+
+
+            // Ask if they want to play again
+            
+            keepPlaying = confirm("Do you want to ask another question?");
+        }
+    </script>
+
+</body>
+</html>
